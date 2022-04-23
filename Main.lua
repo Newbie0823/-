@@ -69,7 +69,7 @@ MainFrame.Visible = false
 
 IsName.Name = "IsName"
 IsName.Parent = MainFrame
-IsName.Value = "Main Lobby"
+IsName.Value = "메인 로비"
 
 View_CurrentCamera_GetPlayer.Name = "View_CurrentCamera_GetPlayer"
 View_CurrentCamera_GetPlayer.Parent = MainFrame
@@ -266,7 +266,7 @@ KRMFrame.Visible = false
 
 IsName_2.Name = "IsName"
 IsName_2.Parent = KRMFrame
-IsName_2.Value = "Main Lobby"
+IsName_2.Value = "한국 머더"
 
 Kill_Input.Name = "Kill_Input"
 Kill_Input.Parent = KRMFrame
@@ -430,7 +430,7 @@ IsName_3.Value = "Unter Game"
 
 -- Scripts:
 
-local function DHLO_fake_script() -- KR_Hub.MainScript 
+local function SZHNM_fake_script() -- KR_Hub.MainScript 
 	local script = Instance.new('LocalScript', KR_Hub)
 
 	local GameId = game.PlaceId
@@ -1054,29 +1054,27 @@ local function DHLO_fake_script() -- KR_Hub.MainScript
 	
 	Mouse.Button1Down:Connect(function()
 		if not script.Disabled then
-			
+			if KRMAim == true then
+				for _, v in pairs(game.Players:GetPlayers()) do
+					if Player.Character:FindFirstChild("Revolver") then	
+						if v.Character:FindFirstChild('Knife') or v.Backpack:FindFirstChild('Knife') then
+							local args = {
+								[1] = v.Character.Torso.Position,
+								[2] = v.Character.Head,
+								[3] = v.Character.Torso.Position
+							}
+	
+							Player.Character.Revolver.RevolverScript.ClientLeftDown:FireServer(unpack(args))
+						end
+					end
+				end
+			end
 		end
 	end)
 	
 	Mouse.KeyDown:Connect(function(key)
 		if not script.Disabled then
-			if key == "e" then
-				if KRMAim == true then
-					for _, v in pairs(game.Players:GetPlayers()) do
-						if Player.Character:FindFirstChild("Revolver") then	
-							if v.Character:FindFirstChild('Knife') or v.Backpack:FindFirstChild('Knife') then
-								local args = {
-									[1] = v.Character.Head.Position,
-									[2] = v.Character.Head,
-									[3] = v.Character.Head.Position
-								}
-	
-								Player.Character.Revolver.RevolverScript.ClientLeftDown:FireServer(unpack(args))
-							end
-						end
-					end
-				end
-			end
+			
 		end
 	end)
 	
@@ -1086,17 +1084,17 @@ local function DHLO_fake_script() -- KR_Hub.MainScript
 		end
 	end)
 	
-	if GameId == 5720801512 or GameId == 0 then
-		local OpenHub2 = Msgreq("KR HUB","I found this game frame",5,"Open","Nope")
+	--if GameId == 5720801512 or GameId == 0 then
+	--	local OpenHub2 = Msgreq("KR HUB","I found this game frame",5,"Open","Nope")
 	
-		if OpenHub2 == "Open" then
-			if GameId == 5720801512 then
-				FrameVisibleControl("KRMFrame")
-			end
-			if GameId == 0 then
-				FrameVisibleControl("KRMFrame")
-			end
-		end
-	end
+	--	if OpenHub2 == "Open" then
+	--		if GameId == 5720801512 then
+	--			FrameVisibleControl("KRMFrame")
+	--		end
+	--		if GameId == 0 then
+	--			FrameVisibleControl("KRMFrame")
+	--		end
+	--	end
+	--end
 end
-coroutine.wrap(DHLO_fake_script)()
+coroutine.wrap(SZHNM_fake_script)()
