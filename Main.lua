@@ -1,4 +1,5 @@
 -- Gui to Lua
+-- Version: 3.3 (Edit by Hdklqd)
 
 -- Instances:
 
@@ -429,7 +430,7 @@ IsName_3.Value = "Unter Game"
 
 -- Scripts:
 
-local function OXCUAWN_fake_script() -- KR_Hub.MainScript 
+local function DHLO_fake_script() -- KR_Hub.MainScript 
 	local script = Instance.new('LocalScript', KR_Hub)
 
 	local GameId = game.PlaceId
@@ -674,7 +675,6 @@ local function OXCUAWN_fake_script() -- KR_Hub.MainScript
 														NameGui.lol.TextColor3 = Color3.new(0,255,0)
 													end
 													NameGui.lol.Text = Player.Name
-													NameGui.lol.TextColor3 = Color3.fromRGB(255,255,255)
 													NameGui.Parent = Player.Character.Head
 												end
 											else
@@ -703,7 +703,6 @@ local function OXCUAWN_fake_script() -- KR_Hub.MainScript
 														NameGui.lol.TextColor3 = Color3.new(0,255,0)
 													end
 													NameGui.lol.Text = Player.Name
-													NameGui.lol.TextColor3 = Color3.fromRGB(255,255,255)
 												end
 											end
 										end
@@ -1100,4 +1099,4 @@ local function OXCUAWN_fake_script() -- KR_Hub.MainScript
 		end
 	end
 end
-coroutine.wrap(OXCUAWN_fake_script)()
+coroutine.wrap(DHLO_fake_script)()
