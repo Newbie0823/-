@@ -826,17 +826,23 @@ local function SQFVAA_fake_script()
 	
 	MainFrame.GetAllTool.MouseButton1Click:Connect(function()
 		if not script.Disabled then
-			for _, v in pairs(game.workspace:GetDescendants()) do
-				if v:IsA("Tool") then 
-					if not game.Players:GetPlayerFromCharacter(v.Parent) then
-						if v:FindFirstChild("Handle") then
-							spawn(function()
-								v:FindFirstChild("Handle").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-							end)
+			local function copy(instance)
+				for i,c in pairs(instance:GetDescendants())do
+					if c:IsA('Tool') or c:IsA('HopperBin') then
+						if not game.Players:GetPlayerFromCharacter(c.Parent) then
+							if c:FindFirstChild("Handle") then
+								spawn(function()
+									c.Parent = game.Workspace
+									c:FindFirstChild("Handle").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+								end)
+							end
 						end
 					end
 				end
 			end
+			copy(game:GetService("Workspace"))
+			copy(game:GetService("Lighting"))
+			copy(game:GetService("ReplicatedStorage"))
 		end
 	end)
 	
