@@ -1,3 +1,4 @@
+-- Gui to Lua
 -- Instances:
 
 local KR_Hub = Instance.new("ScreenGui")
@@ -458,7 +459,7 @@ IsName_3.Value = "Unter Game"
 
 -- Scripts:
 
-local function UVQAHB_fake_script() -- KR_Hub.MainScript 
+local function GEOE_fake_script() -- KR_Hub.MainScript 
 	local script = Instance.new('LocalScript', KR_Hub)
 
 	local GameId = game.PlaceId
@@ -675,8 +676,8 @@ local function UVQAHB_fake_script() -- KR_Hub.MainScript
 							if KRMesp == true then
 								for _, Player in pairs(game.Players:GetPlayers()) do
 									if Player.Character then
-										if Player.Character:FindFirstChild("HumanoidRootPart") then
-											if not Player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("NameGui") then
+										if Player.Character:FindFirstChild("Head") then
+											if not Player.Character:FindFirstChild("Head"):FindFirstChild("NameGui") then
 												--if Untelesp == true then
 												--	local P1 = 0
 												--	local N1 = 0
@@ -704,7 +705,7 @@ local function UVQAHB_fake_script() -- KR_Hub.MainScript
 														NameGui.lol.TextColor3 = Color3.new(0,255,0)
 													end
 													NameGui.lol.Text = Player.Name
-													NameGui.Parent = Player.Character.HumanoidRootPart
+													NameGui.Parent = Player.Character.Head
 												end
 											else
 												--if Untelesp == true then
@@ -723,7 +724,7 @@ local function UVQAHB_fake_script() -- KR_Hub.MainScript
 												--	NameGui.lol.TextColor3 = Color3.fromRGB(255,255,255)
 												--	NameGui.lol.Text = Player.Name .. " / P1:" .. P1
 												if KRMesp == true then
-													local NameGui = Player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("NameGui")
+													local NameGui = Player.Character:FindFirstChild("Head"):FindFirstChild("NameGui")
 													if Player.Character:FindFirstChild('Revolver') or Player.Backpack:FindFirstChild('Revolver') then
 														NameGui.lol.TextColor3 = Color3.new(0,0,255)
 													elseif Player.Character:FindFirstChild('Knife') or Player.Backpack:FindFirstChild('Knife') then
@@ -759,9 +760,9 @@ local function UVQAHB_fake_script() -- KR_Hub.MainScript
 							else
 								for _, Player in pairs(game.Players:GetPlayers()) do
 									if Player.Character then
-										if Player.Character:FindFirstChild("HumanoidRootPart") then
-											if Player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("NameGui") then
-												Player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("NameGui"):Destroy()
+										if Player.Character:FindFirstChild("Head") then
+											if Player.Character:FindFirstChild("Head"):FindFirstChild("NameGui") then
+												Player.Character:FindFirstChild("Head"):FindFirstChild("NameGui"):Destroy()
 											end
 										end
 									end
@@ -1162,10 +1163,8 @@ local function UVQAHB_fake_script() -- KR_Hub.MainScript
 		if not script.Disabled then
 			for _, v in pairs(game.Workspace:GetChildren()) do
 				if KRMesp == true then
-					if v.Name == "RevolverPickUp" then
-						if v:FindFirstChild("Camp") then
-							v:FindFirstChild("Camp").CFrame = Player.Character.HumanoidRootPart.CFrame
-						end
+					if v.Name == "RevolverPickUp" and v:IsA("Model") then
+						v:MoveTo(Player.Character.HumanoidRootPart.Position)
 					end
 				end
 			end
@@ -1225,4 +1224,4 @@ local function UVQAHB_fake_script() -- KR_Hub.MainScript
 	--	end
 	--end
 end
-coroutine.wrap(UVQAHB_fake_script)()
+coroutine.wrap(GEOE_fake_script)()
