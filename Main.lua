@@ -430,7 +430,7 @@ IsName_3.Value = "Unter Game"
 
 -- Scripts:
 
-local function SZHNM_fake_script() -- KR_Hub.MainScript 
+local function AVHEKBS_fake_script() -- KR_Hub.MainScript 
 	local script = Instance.new('LocalScript', KR_Hub)
 
 	local GameId = game.PlaceId
@@ -1057,7 +1057,13 @@ local function SZHNM_fake_script() -- KR_Hub.MainScript
 			if KRMAim == true then
 				for _, v in pairs(game.Players:GetPlayers()) do
 					if Player.Character:FindFirstChild("Revolver") then	
-						if v.Character:FindFirstChild('Knife') or v.Backpack:FindFirstChild('Knife') then
+						local Load = false
+						for _, v2 in pairs(v:GetDescendants()) do
+							if Mouse.Target == v2 then
+								Load = true
+							end
+						end
+						if v.Character:FindFirstChild('Knife') or v.Backpack:FindFirstChild('Knife') and Load then
 							local args = {
 								[1] = v.Character.Torso.Position,
 								[2] = v.Character.Head,
@@ -1074,7 +1080,9 @@ local function SZHNM_fake_script() -- KR_Hub.MainScript
 	
 	Mouse.KeyDown:Connect(function(key)
 		if not script.Disabled then
-			
+			if key == "i" then
+				script.Parent.Enabled = not script.Parent.Enabled
+			end
 		end
 	end)
 	
@@ -1097,4 +1105,4 @@ local function SZHNM_fake_script() -- KR_Hub.MainScript
 	--	end
 	--end
 end
-coroutine.wrap(SZHNM_fake_script)()
+coroutine.wrap(AVHEKBS_fake_script)()
