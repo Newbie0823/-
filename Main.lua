@@ -1,8 +1,3 @@
--- Gui to Lua
--- Version: 3.3 (Edit by Hdklqd)
-
--- Instances:
-
 local KR_Hub = Instance.new("ScreenGui")
 local DragFrame = Instance.new("Frame")
 local MainFrame = Instance.new("Frame")
@@ -40,8 +35,6 @@ local AutoGetP1 = Instance.new("TextButton")
 local Fake_Steal = Instance.new("TextButton")
 local esp_2 = Instance.new("TextButton")
 local IsName_3 = Instance.new("StringValue")
-
---Properties:
 
 KR_Hub.Name = "KR_Hub"
 KR_Hub.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -186,6 +179,7 @@ Hub.BorderSizePixel = 0
 Hub.Position = UDim2.new(0.74444443, 0, 0.0952688679, 0)
 Hub.Size = UDim2.new(0, 103, 0, 60)
 Hub.Visible = false
+Hub.ZIndex = 5
 Hub.BottomImage = "rbxassetid://5255459942"
 Hub.CanvasSize = UDim2.new(0, 0, 0, 0)
 Hub.MidImage = "rbxassetid://5255460787"
@@ -201,6 +195,7 @@ Exit.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 Exit.BorderSizePixel = 0
 Exit.Position = UDim2.new(0.974074006, 0, 0.0456937812, 0)
 Exit.Size = UDim2.new(0, 20, 0, 20)
+Exit.ZIndex = 5
 Exit.Font = Enum.Font.SourceSansBold
 Exit.Text = ""
 Exit.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -217,6 +212,7 @@ HubButton.BackgroundColor3 = Color3.fromRGB(95, 79, 0)
 HubButton.BorderSizePixel = 0
 HubButton.Position = UDim2.new(0.885125339, 0, 0.0459999926, 0)
 HubButton.Size = UDim2.new(0, 47, 0, 20)
+HubButton.ZIndex = 5
 HubButton.Font = Enum.Font.SourceSansBold
 HubButton.Text = "Hub"
 HubButton.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -232,6 +228,7 @@ HereName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 HereName.BackgroundTransparency = 1.000
 HereName.Position = UDim2.new(0.171604931, 0, 0.0425123461, 0)
 HereName.Size = UDim2.new(0, 139, 0, 19)
+HereName.ZIndex = 5
 HereName.Font = Enum.Font.SourceSansBold
 HereName.Text = ""
 HereName.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -247,6 +244,7 @@ ReSpawn.BackgroundColor3 = Color3.fromRGB(0, 120, 34)
 ReSpawn.BorderSizePixel = 0
 ReSpawn.Position = UDim2.new(0.74000001, 0, 0.0460000001, 0)
 ReSpawn.Size = UDim2.new(0, 62, 0, 20)
+ReSpawn.ZIndex = 5
 ReSpawn.Font = Enum.Font.SourceSansBold
 ReSpawn.Text = "리스폰"
 ReSpawn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -428,9 +426,7 @@ IsName_3.Name = "IsName"
 IsName_3.Parent = UnterGame
 IsName_3.Value = "Unter Game"
 
--- Scripts:
-
-local function AVHEKBS_fake_script() -- KR_Hub.MainScript 
+local function SQFVAA_fake_script()
 	local script = Instance.new('LocalScript', KR_Hub)
 
 	local GameId = game.PlaceId
@@ -773,6 +769,7 @@ local function AVHEKBS_fake_script() -- KR_Hub.MainScript
 			spawn(function()
 				Fr.MouseButton1Click:Connect(function()
 					FrameVisibleControl(v.Name)
+					Hub.Visible = not Hub.Visible
 				end)
 			end)
 		end
@@ -786,11 +783,7 @@ local function AVHEKBS_fake_script() -- KR_Hub.MainScript
 	end)
 	
 	DragFrame.HubButton.MouseButton1Click:Connect(function()
-		if Hub.Visible == false then
-			Hub.Visible = true
-		elseif Hub.Visible == true then
-			Hub.Visible = false
-		end
+		Hub.Visible = not Hub.Visible
 	end)
 	
 	DragFrame.ReSpawn.MouseButton1Click:Connect(function()
@@ -1105,4 +1098,4 @@ local function AVHEKBS_fake_script() -- KR_Hub.MainScript
 	--	end
 	--end
 end
-coroutine.wrap(AVHEKBS_fake_script)()
+coroutine.wrap(SQFVAA_fake_script)()
