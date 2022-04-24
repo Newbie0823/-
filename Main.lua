@@ -1,3 +1,5 @@
+-- Instances:
+
 local KR_Hub = Instance.new("ScreenGui")
 local DragFrame = Instance.new("Frame")
 local MainFrame = Instance.new("Frame")
@@ -26,6 +28,8 @@ local Kill_Button = Instance.new("TextButton")
 local Text1_2 = Instance.new("TextLabel")
 local esp = Instance.new("TextButton")
 local KRMAim = Instance.new("TextButton")
+local GetGun = Instance.new("TextButton")
+local Kill_Loop = Instance.new("TextButton")
 local not_use = Instance.new("Folder")
 local UnterGame = Instance.new("Frame")
 local Gun_Kill = Instance.new("TextButton")
@@ -35,6 +39,8 @@ local AutoGetP1 = Instance.new("TextButton")
 local Fake_Steal = Instance.new("TextButton")
 local esp_2 = Instance.new("TextButton")
 local IsName_3 = Instance.new("StringValue")
+
+--Properties:
 
 KR_Hub.Name = "KR_Hub"
 KR_Hub.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -271,8 +277,8 @@ Kill_Input.Parent = KRMFrame
 Kill_Input.AnchorPoint = Vector2.new(0.5, 0.5)
 Kill_Input.BackgroundColor3 = Color3.fromRGB(54, 54, 71)
 Kill_Input.BorderSizePixel = 0
-Kill_Input.Position = UDim2.new(0.284876466, 0, 0.238778576, 0)
-Kill_Input.Size = UDim2.new(0, 200, 0, 14)
+Kill_Input.Position = UDim2.new(0.284876466, 0, 0.266762376, 0)
+Kill_Input.Size = UDim2.new(0, 200, 0, 24)
 Kill_Input.ClearTextOnFocus = false
 Kill_Input.Font = Enum.Font.SourceSansBold
 Kill_Input.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
@@ -287,8 +293,8 @@ Kill_Button.Parent = KRMFrame
 Kill_Button.AnchorPoint = Vector2.new(0.5, 0.5)
 Kill_Button.BackgroundColor3 = Color3.fromRGB(45, 45, 59)
 Kill_Button.BorderSizePixel = 0
-Kill_Button.Position = UDim2.new(0.62716049, 0, 0.237569824, 0)
-Kill_Button.Size = UDim2.new(0, 53, 0, 14)
+Kill_Button.Position = UDim2.new(0.62716049, 0, 0.266157836, 0)
+Kill_Button.Size = UDim2.new(0, 53, 0, 24)
 Kill_Button.Font = Enum.Font.SourceSansBold
 Kill_Button.Text = "킬"
 Kill_Button.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -313,7 +319,7 @@ esp.Parent = KRMFrame
 esp.AnchorPoint = Vector2.new(0.5, 0.5)
 esp.BackgroundColor3 = Color3.fromRGB(45, 45, 59)
 esp.BorderSizePixel = 0
-esp.Position = UDim2.new(0.303703606, 0, 0.389984071, 0)
+esp.Position = UDim2.new(0.306172729, 0, 0.442894131, 0)
 esp.Size = UDim2.new(0, 65, 0, 22)
 esp.Font = Enum.Font.SourceSansBold
 esp.Text = "esp:off"
@@ -325,12 +331,36 @@ KRMAim.Parent = KRMFrame
 KRMAim.AnchorPoint = Vector2.new(0.5, 0.5)
 KRMAim.BackgroundColor3 = Color3.fromRGB(45, 45, 59)
 KRMAim.BorderSizePixel = 0
-KRMAim.Position = UDim2.new(0.116049379, 0, 0.389984101, 0)
+KRMAim.Position = UDim2.new(0.116049379, 0, 0.442894161, 0)
 KRMAim.Size = UDim2.new(0, 65, 0, 22)
 KRMAim.Font = Enum.Font.SourceSansBold
 KRMAim.Text = "셔틀 에임:off"
 KRMAim.TextColor3 = Color3.fromRGB(255, 255, 255)
 KRMAim.TextSize = 14.000
+
+GetGun.Name = "GetGun"
+GetGun.Parent = KRMFrame
+GetGun.AnchorPoint = Vector2.new(0.5, 0.5)
+GetGun.BackgroundColor3 = Color3.fromRGB(45, 45, 59)
+GetGun.BorderSizePixel = 0
+GetGun.Position = UDim2.new(0.498765439, 0, 0.442894161, 0)
+GetGun.Size = UDim2.new(0, 65, 0, 22)
+GetGun.Font = Enum.Font.SourceSansBold
+GetGun.Text = "떨군 총 획득"
+GetGun.TextColor3 = Color3.fromRGB(255, 255, 255)
+GetGun.TextSize = 14.000
+
+Kill_Loop.Name = "Kill_Loop"
+Kill_Loop.Parent = KRMFrame
+Kill_Loop.AnchorPoint = Vector2.new(0.5, 0.5)
+Kill_Loop.BackgroundColor3 = Color3.fromRGB(45, 45, 59)
+Kill_Loop.BorderSizePixel = 0
+Kill_Loop.Position = UDim2.new(0.777044773, 0, 0.266078085, 0)
+Kill_Loop.Size = UDim2.new(0, 53, 0, 23)
+Kill_Loop.Font = Enum.Font.SourceSansBold
+Kill_Loop.Text = "반복:off"
+Kill_Loop.TextColor3 = Color3.fromRGB(255, 255, 255)
+Kill_Loop.TextSize = 17.000
 
 not_use.Name = "not_use"
 not_use.Parent = KR_Hub
@@ -426,7 +456,9 @@ IsName_3.Name = "IsName"
 IsName_3.Parent = UnterGame
 IsName_3.Value = "Unter Game"
 
-local function SQFVAA_fake_script()
+-- Scripts:
+
+local function NKIRFTQ_fake_script() -- KR_Hub.MainScript 
 	local script = Instance.new('LocalScript', KR_Hub)
 
 	local GameId = game.PlaceId
@@ -557,6 +589,7 @@ local function SQFVAA_fake_script()
 	
 	local View = false
 	local KRMAim = false
+	local KRMKillLoop = false
 	
 	local KRMesp = false
 	--local Untelesp = false
@@ -704,12 +737,42 @@ local function SQFVAA_fake_script()
 										end
 									end
 								end
+								for _, v in pairs(game.Workspace:GetChildren()) do
+									if KRMesp == true then
+										if v.Name == "RevolverPickUp" then
+											if v:FindFirstChild("Camp") then
+												if not v:FindFirstChild("Camp"):FindFirstChild("NameGui") then
+													local NameGui = script.NameGui:Clone()
+													NameGui.lol.TextColor3 = Color3.new(0.701961, 0, 1)
+													NameGui.lol.Text = "!!II떨굼II!!"
+													NameGui.Parent = v.Camp
+												else
+													local NameGui = v:FindFirstChild("Camp"):FindFirstChild("NameGui")
+													NameGui.lol.TextColor3 = Color3.new(0.701961, 0, 1)
+													NameGui.lol.Text = "!!II떨굼II!!"
+													NameGui.Parent = v.Camp
+												end
+											end
+										end
+									end
+								end
 							else
 								for _, Player in pairs(game.Players:GetPlayers()) do
 									if Player.Character then
 										if Player.Character:FindFirstChild("Head") then
 											if Player.Character:FindFirstChild("Head"):FindFirstChild("NameGui") then
 												Player.Character:FindFirstChild("Head"):FindFirstChild("NameGui"):Destroy()
+											end
+										end
+									end
+								end
+								for _, v in pairs(game.Workspace:GetChildren()) do
+									if KRMesp == true then
+										if v.Name == "RevolverPickUp" then
+											if v:FindFirstChild("Camp") then
+												if v:FindFirstChild("Camp"):FindFirstChild("NameGui") then
+													v:FindFirstChild("Camp"):FindFirstChild("NameGui"):Destroy()
+												end
 											end
 										end
 									end
@@ -1007,23 +1070,55 @@ local function SQFVAA_fake_script()
 	
 	KRMFrame.Kill_Button.MouseButton1Click:Connect(function()
 		if not script.Disabled then
-			local Targets = FindPlayer(KRMFrame.Kill_Input.Text)
-			for _, v in pairs(Targets) do
-				if Player.Character:FindFirstChild("Revolver") then				
-					local args = {
-						[1] = v.Character.Head.Position,
-						[2] = v.Character.Head,
-						[3] = v.Character.Head.Position
-					}
+			spawn(function()
+				local Targets = FindPlayer(KRMFrame.Kill_Input.Text)
+				for _, v in pairs(Targets) do
+					if v.Character then
+						if v.Character:FindFirstChild("Head") then
+							if Player.Character:FindFirstChild("Revolver") then
+								local args = {
+									[1] = v.Character.Head.Position,
+									[2] = v.Character.Head,
+									[3] = v.Character.Head.Position
+								}
 	
-					Player.Character.Revolver.RevolverScript.ClientLeftDown:FireServer(unpack(args))
-				end
+								Player.Character.Revolver.RevolverScript.ClientLeftDown:FireServer(unpack(args))
+							end
 	
-				if Player.Character:FindFirstChild("Knife") then
-					Player.Character.Knife.KnifeScript.ClientStab:FireServer()
-					Player.Character.Knife.KnifeScript.HitPlayer:FireServer(v.Character.Head)
+							if Player.Character:FindFirstChild("Knife") then
+								Player.Character.Knife.KnifeScript.ClientStab:FireServer()
+								Player.Character.Knife.KnifeScript.HitPlayer:FireServer(v.Character.Head)
+							end
+						end
+					end
 				end
-			end
+				if KRMKillLoop == true then
+					while KRMKillLoop do
+						wait(0.2)
+						local Targets = FindPlayer(KRMFrame.Kill_Input.Text)
+						for _, v in pairs(Targets) do
+							if v.Character then
+								if v.Character:FindFirstChild("Head") then
+									if Player.Character:FindFirstChild("Revolver") then
+										local args = {
+											[1] = v.Character.Head.Position,
+											[2] = v.Character.Head,
+											[3] = v.Character.Head.Position
+										}
+	
+										Player.Character.Revolver.RevolverScript.ClientLeftDown:FireServer(unpack(args))
+									end
+	
+									if Player.Character:FindFirstChild("Knife") then
+										Player.Character.Knife.KnifeScript.ClientStab:FireServer()
+										Player.Character.Knife.KnifeScript.HitPlayer:FireServer(v.Character.Head)
+									end
+								end
+							end
+						end
+					end
+				end
+			end)
 		end
 	end)
 	
@@ -1051,6 +1146,32 @@ local function SQFVAA_fake_script()
 		end
 	end)
 	
+	KRMFrame.Kill_Loop.MouseButton1Click:Connect(function()
+		if not script.Disabled then
+			if KRMKillLoop == true then
+				KRMKillLoop = false
+				KRMFrame.Kill_Loop.Text = "반복:" .. "off"
+			elseif KRMKillLoop == false then
+				KRMKillLoop = true
+				KRMFrame.Kill_Loop.Text = "반복:" .. "on"
+			end
+		end
+	end)
+	
+	KRMFrame.GetGun.MouseButton1Click:Connect(function()
+		if not script.Disabled then
+			for _, v in pairs(game.Workspace:GetChildren()) do
+				if KRMesp == true then
+					if v.Name == "RevolverPickUp" then
+						if v:FindFirstChild("Camp") then
+							v:FindFirstChild("Camp").CFrame = Player.Character.Torso.CFrame
+						end
+					end
+				end
+			end
+		end
+	end)
+	
 	Mouse.Button1Down:Connect(function()
 		if not script.Disabled then
 			if KRMAim == true then
@@ -1064,9 +1185,9 @@ local function SQFVAA_fake_script()
 						end
 						if v.Character:FindFirstChild('Knife') or v.Backpack:FindFirstChild('Knife') and Load then
 							local args = {
-								[1] = v.Character.Torso.Position,
+								[1] = v.Character.Head.Position,
 								[2] = v.Character.Head,
-								[3] = v.Character.Torso.Position
+								[3] = v.Character.Head.Position
 							}
 	
 							Player.Character.Revolver.RevolverScript.ClientLeftDown:FireServer(unpack(args))
@@ -1104,4 +1225,4 @@ local function SQFVAA_fake_script()
 	--	end
 	--end
 end
-coroutine.wrap(SQFVAA_fake_script)()
+coroutine.wrap(NKIRFTQ_fake_script)()
