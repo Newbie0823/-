@@ -458,7 +458,7 @@ IsName_3.Value = "Unter Game"
 
 -- Scripts:
 
-local function NKIRFTQ_fake_script() -- KR_Hub.MainScript 
+local function UVQAHB_fake_script() -- KR_Hub.MainScript 
 	local script = Instance.new('LocalScript', KR_Hub)
 
 	local GameId = game.PlaceId
@@ -675,8 +675,8 @@ local function NKIRFTQ_fake_script() -- KR_Hub.MainScript
 							if KRMesp == true then
 								for _, Player in pairs(game.Players:GetPlayers()) do
 									if Player.Character then
-										if Player.Character:FindFirstChild("Head") then
-											if not Player.Character:FindFirstChild("Head"):FindFirstChild("NameGui") then
+										if Player.Character:FindFirstChild("HumanoidRootPart") then
+											if not Player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("NameGui") then
 												--if Untelesp == true then
 												--	local P1 = 0
 												--	local N1 = 0
@@ -693,7 +693,7 @@ local function NKIRFTQ_fake_script() -- KR_Hub.MainScript
 												--	local NameGui = script.NameGui:Clone()
 												--	NameGui.lol.Text = Player.Name .. " / P1:" .. P1
 												--	NameGui.lol.TextColor3 = Color3.fromRGB(255,255,255)
-												--	NameGui.Parent = Player.Character.Head
+												--	NameGui.Parent = Player.Character.HumanoidRootPart
 												if KRMesp == true then
 													local NameGui = script.NameGui:Clone()
 													if Player.Character:FindFirstChild('Revolver') or Player.Backpack:FindFirstChild('Revolver') then
@@ -704,7 +704,7 @@ local function NKIRFTQ_fake_script() -- KR_Hub.MainScript
 														NameGui.lol.TextColor3 = Color3.new(0,255,0)
 													end
 													NameGui.lol.Text = Player.Name
-													NameGui.Parent = Player.Character.Head
+													NameGui.Parent = Player.Character.HumanoidRootPart
 												end
 											else
 												--if Untelesp == true then
@@ -719,11 +719,11 @@ local function NKIRFTQ_fake_script() -- KR_Hub.MainScript
 												--	if Player.Character:FindFirstChild("P") then
 												--		P1 += 1
 												--	end
-												--	local NameGui = Player.Character:FindFirstChild("Head"):FindFirstChild("NameGui")
+												--	local NameGui = Player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("NameGui")
 												--	NameGui.lol.TextColor3 = Color3.fromRGB(255,255,255)
 												--	NameGui.lol.Text = Player.Name .. " / P1:" .. P1
 												if KRMesp == true then
-													local NameGui = Player.Character:FindFirstChild("Head"):FindFirstChild("NameGui")
+													local NameGui = Player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("NameGui")
 													if Player.Character:FindFirstChild('Revolver') or Player.Backpack:FindFirstChild('Revolver') then
 														NameGui.lol.TextColor3 = Color3.new(0,0,255)
 													elseif Player.Character:FindFirstChild('Knife') or Player.Backpack:FindFirstChild('Knife') then
@@ -759,9 +759,9 @@ local function NKIRFTQ_fake_script() -- KR_Hub.MainScript
 							else
 								for _, Player in pairs(game.Players:GetPlayers()) do
 									if Player.Character then
-										if Player.Character:FindFirstChild("Head") then
-											if Player.Character:FindFirstChild("Head"):FindFirstChild("NameGui") then
-												Player.Character:FindFirstChild("Head"):FindFirstChild("NameGui"):Destroy()
+										if Player.Character:FindFirstChild("HumanoidRootPart") then
+											if Player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("NameGui") then
+												Player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("NameGui"):Destroy()
 											end
 										end
 									end
@@ -1074,12 +1074,12 @@ local function NKIRFTQ_fake_script() -- KR_Hub.MainScript
 				local Targets = FindPlayer(KRMFrame.Kill_Input.Text)
 				for _, v in pairs(Targets) do
 					if v.Character then
-						if v.Character:FindFirstChild("Head") then
+						if v.Character:FindFirstChild("HumanoidRootPart") then
 							if Player.Character:FindFirstChild("Revolver") then
 								local args = {
-									[1] = v.Character.Head.Position,
-									[2] = v.Character.Head,
-									[3] = v.Character.Head.Position
+									[1] = v.Character.HumanoidRootPart.Position,
+									[2] = v.Character.HumanoidRootPart,
+									[3] = v.Character.HumanoidRootPart.Position
 								}
 	
 								Player.Character.Revolver.RevolverScript.ClientLeftDown:FireServer(unpack(args))
@@ -1087,7 +1087,7 @@ local function NKIRFTQ_fake_script() -- KR_Hub.MainScript
 	
 							if Player.Character:FindFirstChild("Knife") then
 								Player.Character.Knife.KnifeScript.ClientStab:FireServer()
-								Player.Character.Knife.KnifeScript.HitPlayer:FireServer(v.Character.Head)
+								Player.Character.Knife.KnifeScript.HitPlayer:FireServer(v.Character.HumanoidRootPart)
 							end
 						end
 					end
@@ -1098,12 +1098,12 @@ local function NKIRFTQ_fake_script() -- KR_Hub.MainScript
 						local Targets = FindPlayer(KRMFrame.Kill_Input.Text)
 						for _, v in pairs(Targets) do
 							if v.Character then
-								if v.Character:FindFirstChild("Head") then
+								if v.Character:FindFirstChild("HumanoidRootPart") then
 									if Player.Character:FindFirstChild("Revolver") then
 										local args = {
-											[1] = v.Character.Head.Position,
-											[2] = v.Character.Head,
-											[3] = v.Character.Head.Position
+											[1] = v.Character.HumanoidRootPart.Position,
+											[2] = v.Character.HumanoidRootPart,
+											[3] = v.Character.HumanoidRootPart.Position
 										}
 	
 										Player.Character.Revolver.RevolverScript.ClientLeftDown:FireServer(unpack(args))
@@ -1111,7 +1111,7 @@ local function NKIRFTQ_fake_script() -- KR_Hub.MainScript
 	
 									if Player.Character:FindFirstChild("Knife") then
 										Player.Character.Knife.KnifeScript.ClientStab:FireServer()
-										Player.Character.Knife.KnifeScript.HitPlayer:FireServer(v.Character.Head)
+										Player.Character.Knife.KnifeScript.HitPlayer:FireServer(v.Character.HumanoidRootPart)
 									end
 								end
 							end
@@ -1164,7 +1164,7 @@ local function NKIRFTQ_fake_script() -- KR_Hub.MainScript
 				if KRMesp == true then
 					if v.Name == "RevolverPickUp" then
 						if v:FindFirstChild("Camp") then
-							v:FindFirstChild("Camp").CFrame = Player.Character.Torso.CFrame
+							v:FindFirstChild("Camp").CFrame = Player.Character.HumanoidRootPart.CFrame
 						end
 					end
 				end
@@ -1185,9 +1185,9 @@ local function NKIRFTQ_fake_script() -- KR_Hub.MainScript
 						end
 						if v.Character:FindFirstChild('Knife') or v.Backpack:FindFirstChild('Knife') and Load then
 							local args = {
-								[1] = v.Character.Head.Position,
-								[2] = v.Character.Head,
-								[3] = v.Character.Head.Position
+								[1] = v.Character.HumanoidRootPart.Position,
+								[2] = v.Character.HumanoidRootPart,
+								[3] = v.Character.HumanoidRootPart.Position
 							}
 	
 							Player.Character.Revolver.RevolverScript.ClientLeftDown:FireServer(unpack(args))
@@ -1225,4 +1225,4 @@ local function NKIRFTQ_fake_script() -- KR_Hub.MainScript
 	--	end
 	--end
 end
-coroutine.wrap(NKIRFTQ_fake_script)()
+coroutine.wrap(UVQAHB_fake_script)()
